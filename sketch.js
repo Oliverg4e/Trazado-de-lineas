@@ -6,26 +6,26 @@ function setup(){
 	createCanvas(windowWidth,windowHeight);
 	stroke('red');
 	strokeWeight(4);
-	c1 = new Cuadro(250,500,200);
-	c2 = new Cuadro(c1.x+255,500,200);
-	c3 = new Cuadro(c2.x+255,500,200);
+	c1 = new Cuadro(550,200,200);
+	c2 = new Cuadro(c1.x+255,200,200);
+	c3 = new Cuadro(c2.x+255,200,200);
 	
 }
 
 function draw(){
 	
 	
-	//bh(0,height/2,width,height/2); horizontal
+	//ecuPP(0,height/2,width,height/2); 
 	//bh(0,0,width,height);
-	//bh(0,height,width,0);
+	//dda(0,height,width,0);
 	
 	c1.display();
 	c2.display();
 	c3.display();
 
 
-	textSize(32);
-	text('Bresenham', c1.x+100, c1.y-100);
+	textSize(25);
+	text('Bresenham', c1.x+50, c1.y-100);
 
 	bh(c1.x,c1.y+c1.tam,c1.x+c1.tam,c1.y);
 
@@ -39,8 +39,8 @@ function draw(){
 
 
 
-	textSize(32);
-	text('DDA', c2.x+150, c2.y-100);
+	textSize(25);
+	text('DDA', c2.x+75, c2.y-100);
 
 	//dda(c2.x,c2.y+c2.tam,c2.x+c2.tam,c2.y); error diagonal
 
@@ -52,8 +52,8 @@ function draw(){
 
 
 
-	textSize(32);
-	text('Punto pendiente', c3.x+100, c3.y-100);
+	textSize(25);
+	text('Punto pendiente', c3.x+10, c3.y-100);
 
 	ecuPP(c3.x,c3.y+c3.tam,c3.x+c3.tam,c3.y);
 
@@ -61,7 +61,6 @@ function draw(){
 	
 	ecuPP(c3.x,c3.y+c3.tam/2,c3.x+c3.tam,c3.y+c3.tam/2)
 
-	ecuPP(600,600,60,60); //error
 	
 
 
