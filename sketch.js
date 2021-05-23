@@ -6,9 +6,9 @@ function setup(){
 	createCanvas(windowWidth,windowHeight);
 	stroke('red');
 	strokeWeight(4);
-	c1 = new Cuadro(750,500,400);
-	c2 = new Cuadro(c1.x+555,500,400);
-	c3 = new Cuadro(c2.x+555,500,400);
+	c1 = new Cuadro(250,500,200);
+	c2 = new Cuadro(c1.x+255,500,200);
+	c3 = new Cuadro(c2.x+255,500,200);
 	
 }
 
