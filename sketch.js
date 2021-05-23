@@ -42,7 +42,9 @@ function draw(){
 	textSize(25);
 	text('DDA', c2.x+75, c2.y-100);
 
-	//dda(c2.x,c2.y+c2.tam,c2.x+c2.tam,c2.y); error diagonal
+	line(c2.x,c2.y+c2.tam,c2.x+c2.tam,c2.y);
+
+	//dda(c2.x,c2.y+c2.tam,c2.x+c2.tam,c2.y); 	 //error en diagonal inferior izquierda
 
 	dda(c2.x,c2.y,c2.x+c2.tam,c2.y+c2.tam);
 
@@ -59,10 +61,11 @@ function draw(){
 
 	ecuPP(c3.x,c3.y,c3.x+c3.tam,c3.y+c3.tam);
 	
-	ecuPP(c3.x,c3.y+c3.tam/2,c3.x+c3.tam,c3.y+c3.tam/2)
+	ecuPP(c3.x,c3.y+c3.tam/2,c3.x+c3.tam,c3.y+c3.tam/2);
 
-	
+	//ecuPP(c3.x+c3.tam/2,c3.y,c3.x+c3.tam/2,c3.y+c3.tam);  por alguna razon nomfunciona la linea vertical , hay un problema con x2
 
+	line(c3.x+c3.tam/2,c3.y,c3.x+c3.tam/2,c3.y+c3.tam)
 
 	
 
