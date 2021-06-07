@@ -1,14 +1,18 @@
-
 var c1;
 var c2;
 var c3;
+var bullet;
+var x;
+var y;
 function setup(){
 	createCanvas(windowWidth,windowHeight);
 	stroke('red');
 	strokeWeight(4);
+	bullet = new Bullet(500,250);
 	c1 = new Cuadro(width/3,200,200);
 	c2 = new Cuadro(c1.x+255,200,200);
 	c3 = new Cuadro(c2.x+255,200,200);
+	
 	
 }
 
@@ -23,7 +27,8 @@ function draw(){
 	c2.display();
 	c3.display();
 
-
+	bullet.move();
+	bullet.show();
 	textSize(25);
 	text('Bresenham', c1.x+50, c1.y-100);
 
@@ -67,7 +72,8 @@ function draw(){
 
 	line(c3.x+c3.tam/2,c3.y,c3.x+c3.tam/2,c3.y+c3.tam)
 
-	
+	circulo(width/2,height/2+100,100);
+	ellip(width/2+300,height/2+100,100,50);
 
 	noLoop();
 }
@@ -149,6 +155,93 @@ function bh(x1, y1, x2, y2){
 	  }
 
 }
+
+function circulo( xc, yc, r){
+
+let  p = Math.round(5/4-r);
+let x=0;
+let y=r;
+
+
+printO(xc,x,yc,y);
+while(x<y){
+	x++
+	if(p<0){
+		p=p+2*x+1;
+	}else{
+		y--;
+		p=p+2*(x-y)+1;
+	}
+	printO(xc,x,yc,y);
+
+}
+	
+
+}
+
+function printO(xc,x,yc,y){
+  point(xc + x, yc + y);
+  point(xc + x, yc - y);
+  point(xc - x, yc + y);
+  point(xc - x, yc - y);
+  point(xc + y, yc + x);
+  point(xc + y, yc - x);
+  point(xc - y, yc + x);
+  point(xc - y, yc - x);
+}
+
+
+
+ function ellip(xc, yc, rx, ry) {
+    let x = 0;
+    let y = ry;
+    let px, py;
+    const ry2 = ry * ry;
+    const rx2 = rx * rx;
+ 
+    let p = Math.round(ry2 - rx2 * ry + 0.25 * rx2);
+    point(xc + x, yc + y);
+    point(xc + x, yc - y);
+    point(xc - x, yc - y);
+    point(xc - x, yc + y);
+  
+  
+    px = 0;
+    py = 2 * rx2 * y;
+    while (px < py) {
+      x++;
+      px += 2 * ry2;
+      if (p < 0) {
+        p += ry2 + px;
+      } else {
+        y--;
+        py -= 2 * rx2;
+        p += ry2 + px - py;
+      }
+    point(xc + x, yc + y);
+    point(xc + x, yc - y);
+    point(xc - x, yc - y);
+    point(xc - x, yc + y);
+    }
+    p = Math.round(
+      ry2 * (x + 0.5) * (x + 0.5) + rx2 * (y - 1) * (y - 1) - rx2 * ry2
+    );
+    while (y >= 0) {
+      y--;
+      py -= 2 * rx2;
+      if (p > 0) {
+        p = p - 2 * rx2 * y + rx2;
+      } else {
+        x++;
+        p += 2 * ry2 * x - 2 * rx2 * y + rx2;
+      }
+    point(xc + x, yc + y);
+    point(xc + x, yc - y);
+    point(xc - x, yc - y);
+    point(xc - x, yc + y);
+    }
+  }
+
 
 
 
