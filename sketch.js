@@ -1,7 +1,6 @@
 var c1;
 var c2;
 var c3;
-var bullet;
 var x;
 var y;
 function setup(){
@@ -27,8 +26,6 @@ function draw(){
 	c2.display();
 	c3.display();
 
-	bullet.move();
-	bullet.show();
 	textSize(25);
 	text('Bresenham', c1.x+50, c1.y-100);
 
